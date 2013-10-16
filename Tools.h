@@ -222,6 +222,11 @@ public:
       }
     }
   }
+  static string PrintTree2String(Tree *tree) {
+    ostringstream ss;
+    PrintTree(tree, ss);
+    return ss.str();
+  }
   static void PrintTree2File(Tree *tree, ostringstream &ss) {
     ss<<"<p>";
     PrintTree(tree, ss);
@@ -541,6 +546,20 @@ public:
   void PrintVector2File(const vector<T> &vec, ostringstream &sstr) {
     for (size_t j = 0; j < vec.size(); j++)
       sstr<<vec[j]<<'\t';
+  }
+  template<typename T>
+  string PrintVector2String(const vector<T> &vec) {
+    ostringstream sstr;
+    for (size_t j = 0; j < vec.size(); j++)
+      sstr<<vec[j]<<'\t';
+    return sstr.str();
+  }
+  /////////////////// Print Basic Type
+  template<typename T>
+  string PrintVal2String(const vector<T> &vec) {
+    ostringstream sstr;
+    sstr<<vec<<endl;
+    return sstr.str();
   }
   /////////////////// new c style string
   void new_c_str(char *&str, const string &s) {
