@@ -135,6 +135,15 @@ public:
     }
     sstr<<"#";
   }
+  static string &PrintListNode(ListNode *head, string &str) {
+    stringstream sstr;
+    while (head != nullptr) {
+      sstr<<head->val<<"->";
+      head = head->next;
+    }
+    str = sstr.str();
+    return str;
+  }
 };
 struct Tree {
 private:
